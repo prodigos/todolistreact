@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-const TodoForm = ( {addTodo} ) => {
-  const [todo, setTodo] = useState({
-    id: "",
-    task: "",
-    completed: false,
-  });
-  const handleTaskInputChange = (e) => {
-    setTodo({ ...todo, task: e.target.value });
-  };
+const TodoForm = () => {
   return (
     <form>
-      <input type="text" value={todo.task} onChange={handleTaskInputChange} />
-      <button type="submit" />
-      submit
+      <input type="text" className="todo-input" />
+      <button className="todo-button" type="submit">
+        <i className="fas fa-plus-square"></i>
+      </button>
+      <div className="select">
+        <select name="todos" className="filter-todo">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
     </form>
   );
 };
